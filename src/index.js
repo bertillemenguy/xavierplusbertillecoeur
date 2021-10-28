@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import Page from './Page';
-//import Zone from './Zone';
-//import Choix from './Choix';
+import Header from './Header';
 import MyComponent from './MyComponent'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import reportWebVitals from './reportWebVitals';
 

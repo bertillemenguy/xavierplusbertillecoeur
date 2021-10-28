@@ -1,4 +1,8 @@
 import React from 'react';
+import Header from './Header';
+
+import Button from 'react-bootstrap/Button';
+
 
 class MyComponent extends React.Component {
 
@@ -10,8 +14,8 @@ class MyComponent extends React.Component {
         items: []
       };
     }
-  
 
+    
     componentDidMount() {
     
       fetch("http://localhost:7179/depart")
@@ -37,10 +41,16 @@ class MyComponent extends React.Component {
         
     }
   
+    renderHeader() {
+      return (
+          <Header/>			
+      );
+    };
+
+
     render() {
 
-      const { error, isLoaded, items } = this.state;
-
+        const { error, isLoaded, items } = this.state;
         console.log(items);
 
       if (error) {
@@ -49,13 +59,15 @@ class MyComponent extends React.Component {
         return <div>Chargement…</div>;
       } else {
         return (
-          <ul>
+                <ul>
+            {this.renderHeader()} <br />
             {items.map(item => (
               <li key={item.idDepartement}>
                 {item.nomDepartement} {item.idDepartement}
               </li>
             ))}
           </ul>
+       
         );
       }
     }
