@@ -27,7 +27,7 @@ mariadb . createConnection ({
 }) 
 
     . then ( conn  =>  { 
-       conn . query ( "select * FROM DEPARTEMENT") 
+       conn . query ( "select * FROM FORMATION") 
          . then ( rows  =>  { 
            console . log ( rows ); 
            res.json(rows); 
