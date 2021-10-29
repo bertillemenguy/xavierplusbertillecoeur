@@ -16,3 +16,17 @@ code {
   height: 45px;
   width: 100px;
 }
+
+ul {
+  list-style-type: none;
+}
+
+li{
+  margin: 10px;
+}
+
+#elem_1, #elem_2, #elem_3, #elem_4 {
+display:inline;
+float: left;
+width:25%;
+}

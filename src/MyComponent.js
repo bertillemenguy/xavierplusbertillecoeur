@@ -2,6 +2,11 @@ import React from 'react';
 import Header from './Header';
 
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 class MyComponent extends React.Component {
@@ -59,14 +64,66 @@ class MyComponent extends React.Component {
         return <div>Chargement…</div>;
       } else {
         return (
-                <ul>
+
+            <div> 
             {this.renderHeader()} <br />
-            {items.map(item => (
-              <li key={item.idDepartement}>
-                {item.nomDepartement} {item.idDepartement}
-              </li>
-            ))}
+
+
+            <div id="barre_annees">
+
+                  <div id="elem_1">
+                  <ul>{[
+                //'Info',
+               'Light'
+              ].map((variant, idx) => (
+                <Card
+                  bg={variant.toLowerCase()}
+                  key={idx}
+                  text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+                  style={{ width: '15rem' }}
+                  className="mb-2">
+                  <Card.Header>Formation choisie</Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                    {items.map(item => (
+                   <li key={item.idDepartement}>
+                    {item.nomDepartement}
+                    </li>
+                     ))} <br />
+                    </Card.Text>          
+                    <div className="d-grid gap-2">
+                    <Button variant="primary" size="sm">
+                      Ajouter une formation
+                    </Button>
+                  </div>
+                  </Card.Body>
+                </Card>
+              ))}
           </ul>
+                   
+                  </div>
+                  <div id="elem_2">
+                  <p>Année : </p>
+                  </div>
+
+                  <div id="elem_3">
+                    <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </DropdownButton>
+                  </div>
+
+                  <div id="elem_4">
+                  <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </DropdownButton>
+                    </div>
+
+            </div> <br />
+          </div>
        
         );
       }
